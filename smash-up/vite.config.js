@@ -11,5 +11,5 @@ export default defineConfig({
       },
     }),
   ],
-  base: "/smash-up"
+  base: "/SmashUpDraftMaker/"
 })
