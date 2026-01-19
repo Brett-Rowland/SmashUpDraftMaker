@@ -24,13 +24,20 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: smash-up/package-lock.json
 
-      - run: npm ci
-      - run: npm run build
+      - name: Install dependencies
+        run: npm ci
+        working-directory: smash-up
+
+      - name: Build
+        run: npm run build
+        working-directory: smash-up
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: smash-up/dist
+
 
   deploy:
     environment:
